@@ -1,5 +1,6 @@
 .app {
   margin-top: 50px;
+  text-align: center;
 }
 
 .calculator {
@@ -12,4 +13,9 @@
   position:relative;
   -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
   -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+.active {
+  background: #e8f0fe;
+  color: #174EA6;
 }

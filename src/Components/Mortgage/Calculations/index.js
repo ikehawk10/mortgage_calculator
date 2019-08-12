@@ -17,10 +17,13 @@ class Calculations extends Component {
     }
   }
 
-componentDidMount() {
-  let { home_value, down_payment, percentage} = this.state;
-  percentage =  100 / (home_value / down_payment);
+getPercentage = (home_value = this.state.home_value, down_payment = this.state.down_payment) => {
+  const percentage = 100 / (home_value / down_payment);
   this.setState({ percentage });
+}
+componentDidMount() {
+  let { home_value, down_payment } = this.state;
+  this.getPercentage(home_value, down_payment);
 }
 
   
@@ -50,6 +53,7 @@ handleFormSubmit = (e) => {
   const total = mortgage_calculation(this.state);
 
   this.setState({ total });
+  this.getPercentage()
 
   return this.props.getPayment(total);
   

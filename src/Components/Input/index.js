@@ -3,35 +3,36 @@ import './index.css';
 
 
 class Input extends Component {
+  constructor() {
+    super();
 
-  state = {
-    value: '',
-    placeholder: ''
-  };
-
-  handleChange = (e) => {
+    this.state = {
+      value: null,
+    };
+  }
+  
+  handleValueChange = (e) => {
     const value = e.target.value;
+    this.props.getValue(value);
 
     this.setState({ value })
   }
 
   render() {
-
-    const InputContainer = ({type, label}) => (
+    const { type, value, placeholder } = this.props;
+    return (
       <div class='input_container'>
-        <label >
-          {label}:
+        <label class='input_label'>
+          {this.props.label}:
         </label>
-        <input {...{type}}
-          onChange={this.handleChange} 
-          value={this.state.value} 
-          placeholder={this.state.placeholder}
+        <input 
+          className='number_input'
+          {...{type}}
+          onChange={this.handleValueChange} 
+          {...{value}}
+          {...{placeholder}}
         />
       </div>
-    )
-
-    return (
-      <InputContainer />
     )
   }
 }

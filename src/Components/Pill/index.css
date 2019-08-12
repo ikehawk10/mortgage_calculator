@@ -1,0 +1,13 @@
+.pill {
+  border: 1px solid blue;
+  display: inline;
+  padding: 6px;
+}
+
+.mortgage_pill {
+  border-radius: 18px 0 0 18px;
+}
+
+.affortability_pill {
+  border-radius: 0 18px 18px 0;
+}

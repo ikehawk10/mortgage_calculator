@@ -1,0 +1,11 @@
+.app {
+  margin-top: 50px;
+}
+
+.calculator {
+  border: 1px solid #dfe1e5;
+  border-radius: 8px;
+  margin: 0 auto;
+  max-width: 500px;
+  text-align: center;
+}

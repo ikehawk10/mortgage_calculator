@@ -1,7 +1,12 @@
 .pill {
-  border: 1px solid blue;
+  border: 1px solid #8ab4f8;
+  cursor: pointer;
   display: inline;
-  padding: 6px;
+  padding: 10px;
+}
+
+.pill_container {
+  font-size: 14px;
 }
 
 .mortgage_pill {

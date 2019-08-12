@@ -1,0 +1,17 @@
+.calculations_container {
+  text-align: left;
+}
+
+.input_container {
+  margin: 30px;
+}
+
+.input_label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.number_input {
+  padding: 4px 0;
+  width: 90%;
+}

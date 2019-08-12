@@ -3,9 +3,11 @@ import './index.css';
 
 
 function Display() {
+  const amount = '12,000'
   return (
     <div className="display_container">
-      <h1>Display Component</h1>
+      <div className='monthly_cost'>${amount}<span className='term'>/mo</span></div>
+      
 
     </div>
   );

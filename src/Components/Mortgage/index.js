@@ -13,7 +13,7 @@ function Mortgage() {
   return (
     <main className='calculator'>
       <Greeting 
-        message='Hello, Clearhead team!'
+        message='Greetings, Clearhead team!'
         img_src={logo}
       />
       <section className='pill_container'>

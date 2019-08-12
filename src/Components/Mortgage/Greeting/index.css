@@ -5,6 +5,8 @@
 .company_image {
   height: 35px;
   margin: 20px 10px  0 20px;
+  position: relative;
+  top: 10px;
 }
 
 .greeting {

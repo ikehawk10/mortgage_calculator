@@ -6,13 +6,19 @@ class Calculations extends Component {
     super();
 
     this.state = {
-      home_value: '250,000',
-      down_payment: '60,000',
+      home_value: 250000,
+      down_payment: 60000,
       percentage: '',
-      loan_term: '',
-      interest: '',
+      loan_term: 30,
+      interest: 4,
       total: '',
     }
+  }
+
+  componentDidMount() {
+    let { home_value, down_payment, percentage} = this.state;
+    percentage =  100 / (home_value / down_payment);
+    this.setState({ percentage });
   }
 
   
@@ -27,18 +33,14 @@ handleDownPayment = (e) => {
   this.setState({ down_payment })
 }
 
-handlePercentage = () => {
-  let percentage;
-  const { home_value, down_payment } = this.state 
-  if (home_value && down_payment) {
-    percentage =  100 / (home_value / down_payment);
-    return this.setState({ percentage })
-  } 
-}
-
 handleInterest = (e) => {
   const interest = e.target.value;
   this.setState({ interest })
+}
+
+handleLoanChange = (e) => {
+  const loan_term = e.target.value;
+  this.setState({ loan_term })
 }
 
 handleSubmit = (e) => {
@@ -47,7 +49,7 @@ handleSubmit = (e) => {
 }
 
   render() {
-    const { home_value, down_payment, percentage, interest } = this.state;
+    const { home_value, down_payment, percentage, interest, loan_term } = this.state;
     return (
       <div className="calculations_container">
         <form onSubmit={this.handleSubmit}>
@@ -75,18 +77,17 @@ handleSubmit = (e) => {
           <input 
             className='number_input'
             type='number'
-            onChange={this.handlePercentage} 
+            disabled
             value={percentage}
-            placeholder={percentage}
           />
           <label className='input_label'>
             Loan Term
           </label>
-          <select className='term_length'>
+          <select value={loan_term} onChange={this.handleLoanChange} className='term_length'>
             <option value={10}>10 Year Fixed</option>
             <option value={15}>15 Year Fixed</option>
             <option value={20}>20 Year Fixed</option>
-            <option defaultValue value={30}>30 Year Fixed</option>
+            <option  value={30}>30 Year Fixed</option>
           </select>
           <label className='input_label'>
             Interest %

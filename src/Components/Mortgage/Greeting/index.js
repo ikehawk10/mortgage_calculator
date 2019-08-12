@@ -4,7 +4,7 @@ import './index.css';
 
 function Greeting({message, img_src}) {
   return (
-    <div class='banner_container'>
+    <div className='banner_container'>
       <img 
         src={img_src}
         alt={`${img_src}_logo`} 

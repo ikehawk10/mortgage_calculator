@@ -18,7 +18,7 @@ function Mortgage() {
       />
       <section className='pill_container'>
         <Pill 
-          className='mortgage_pill'
+          className='mortgage_pill active'
           label='Mortgage Calculations'
         />
         <Pill 

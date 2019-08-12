@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import './index.css';
+import '../../../utils/mortgage_calculations';
+import mortgage_calculation from '../../../utils/mortgage_calculations';
 
 class Calculations extends Component {
   constructor() {
     super();
 
     this.state = {
-      home_value: 250000,
+      home_value: 100000,
       down_payment: 60000,
       percentage: '',
-      loan_term: 30,
-      interest: 4,
+      loan_term: 15,
+      interest: 6,
       total: '',
     }
   }
@@ -43,8 +45,10 @@ handleLoanChange = (e) => {
   this.setState({ loan_term })
 }
 
-handleSubmit = (e) => {
+handleFormSubmit = (e) => {
   e.preventDefault();
+
+  mortgage_calculation(this.state);
   console.log(this.state);
 }
 
@@ -52,7 +56,7 @@ handleSubmit = (e) => {
     const { home_value, down_payment, percentage, interest, loan_term } = this.state;
     return (
       <div className="calculations_container">
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleFormSubmit}>
           <label className='input_label'>
             Home Value:
           </label>

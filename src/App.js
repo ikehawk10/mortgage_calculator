@@ -22,7 +22,6 @@ class App extends Component {
   setValue = mortgage => {
     const property_tax = mortgage * 0.27;
     const insurance = mortgage * 0.08;
-    console.log(this.state)
     this.setState({ mortgage, property_tax, insurance });
   }
 

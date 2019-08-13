@@ -14,7 +14,7 @@ class Calculations extends Component {
       loan_term: 30,
       interest: 4,
       total: '',
-      errors: []
+      errors: {}
     }
   }
 
@@ -52,12 +52,18 @@ handleLoanChange = (e) => {
 handleFormSubmit = (e) => {
   e.preventDefault();
   const { home_value, down_payment } = this.state;
-
-  if ( down_payment > home_value) {
-    let message = 'Down payment cannot be greater than home value';
-    return this.setState({ errors: [message]})
-  }
   const total = mortgage_calculation(this.state);
+  let errors = {};
+
+  if ( Number(down_payment) > Number(home_value)) {
+    errors.down_payment ='Down payment cannot be greater than home value';
+    return this.setState({ errors });
+  }
+  if (home_value < 50000) {
+    errors.home_value = `Don't play, you aren't buying a house for less than $50,000...`;
+    console.log(errors)
+    return this.setState({ errors });
+  }
 
   this.setState({ total, errors: [] });
   this.getPercentage()
@@ -67,7 +73,7 @@ handleFormSubmit = (e) => {
 }
 
   render() {
-    const { home_value, down_payment, percentage, interest, loan_term } = this.state;
+    const { home_value, down_payment, percentage, interest, loan_term, errors } = this.state;
     return (
       <div className="calculations_container">
         <form onSubmit={this.handleFormSubmit}>
@@ -80,6 +86,9 @@ handleFormSubmit = (e) => {
             onChange={this.handleHomePrice} 
             value={home_value}
           />
+          {errors.home_value &&
+            <span className='error'>{errors.home_value}</span>
+          }
           <label className='input_label'>
             Down Payment:
           </label>
@@ -89,10 +98,9 @@ handleFormSubmit = (e) => {
             onChange={this.handleDownPayment} 
             value={down_payment}
           />
-          {this.state.errors.length > 0 &&
-            <span className='error'>{this.state.errors[0]}</span>
+          {errors.down_payment &&
+            <span className='error'>{errors.down_payment}</span>
           }
-          
           <label className='input_label'>
             Down Payment %
           </label>

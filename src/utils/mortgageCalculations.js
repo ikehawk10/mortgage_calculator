@@ -1,4 +1,4 @@
-const mortgage_calculation = ({home_value, down_payment, percentage, interest, loan_term}) => {
+const mortgageCalculation = ({home_value, down_payment, percentage, interest, loan_term}) => {
   const interestInDecimal = interest / 100;
   const r = interestInDecimal / 12;
   const term = loan_term * 12;
@@ -7,5 +7,5 @@ const mortgage_calculation = ({home_value, down_payment, percentage, interest, l
   return (home_value*((r * interestTimesPayments)/(interestTimesPayments - 1))).toFixed(2);
 } 
 
-export default mortgage_calculation;
+export default mortgageCalculation;
 

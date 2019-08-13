@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './index.css';
-import '../../../utils/mortgage_calculations';
-import mortgage_calculation from '../../../utils/mortgage_calculations';
+
+import mortgageCalculation from '../../../utils/mortgageCalculations';
 
 class Calculations extends Component {
   constructor() {
@@ -52,7 +52,7 @@ handleLoanChange = (e) => {
 handleFormSubmit = (e) => {
   e.preventDefault();
   const { home_value, down_payment } = this.state;
-  const total = mortgage_calculation(this.state);
+  const total = mortgageCalculation(this.state);
   let errors = {};
 
   if ( Number(down_payment) > Number(home_value)) {
@@ -69,7 +69,6 @@ handleFormSubmit = (e) => {
   this.getPercentage()
 
   return this.props.getPayment(total);
-  
 }
 
   render() {

@@ -3,7 +3,9 @@ import './index.css';
 import formateNumbers from '../../../utils/formateNumbers';
 
 
-function Display({payment}) {
+function Display(props) {
+  const { mortgage, property_tax, insurance } = props.payment;
+  const payment = Math.round(mortgage + property_tax + insurance);
   return (
     <div className="display_container">
       <div className='monthly_cost'>${formateNumbers(payment)}<span className='term'>/mo</span></div>

@@ -23,7 +23,7 @@ class Mortgage extends Component {
     return (
       <main className='calculator'>
         <Calculations getPayment={this.getPayment}/>
-        <Display payment={this.state.monthly_payment} />
+        <Display payment={this.props.data} />
       </main>
     );
   } 

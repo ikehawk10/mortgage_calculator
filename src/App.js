@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import logo from './assets/clear_head.png'
-import { VictoryPie } from 'victory';
-
 
 import Mortgage from './Components/Mortgage';
 import Greeting from './Components/Mortgage/Greeting';
@@ -20,13 +18,13 @@ class App extends Component {
   }
 
   setValue = mortgage => {
+    mortgage = Number(mortgage);
     const property_tax = mortgage * 0.27;
     const insurance = mortgage * 0.08;
     this.setState({ mortgage, property_tax, insurance });
   }
 
   render() {
-    const data = [this.state];
     return (
       <div className="app">
         <Greeting 
@@ -43,8 +41,7 @@ class App extends Component {
             label='Affortability Calculations'
           />
         </section>
-        <Mortgage getMortgage={this.setValue}/>
-        <VictoryPie {...{data}}/>
+        <Mortgage data={this.state} getMortgage={this.setValue}/>
       </div>
     );
   }

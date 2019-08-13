@@ -8,17 +8,18 @@ class Calculations extends Component {
     super();
 
     this.state = {
-      home_value: 100000,
+      home_value: 300000,
       down_payment: 60000,
       percentage: '',
-      loan_term: 15,
-      interest: 6,
+      loan_term: 30,
+      interest: 4,
       total: '',
+      errors: []
     }
   }
 
 getPercentage = (home_value = this.state.home_value, down_payment = this.state.down_payment) => {
-  const percentage = 100 / (home_value / down_payment);
+  const percentage = (100 / (home_value / down_payment)).toFixed(2);
   this.setState({ percentage });
 }
 componentDidMount() {
@@ -50,9 +51,15 @@ handleLoanChange = (e) => {
 
 handleFormSubmit = (e) => {
   e.preventDefault();
+  const { home_value, down_payment } = this.state;
+
+  if ( down_payment > home_value) {
+    let message = 'Down payment cannot be greater than home value';
+    return this.setState({ errors: [message]})
+  }
   const total = mortgage_calculation(this.state);
 
-  this.setState({ total });
+  this.setState({ total, errors: [] });
   this.getPercentage()
 
   return this.props.getPayment(total);
@@ -67,7 +74,7 @@ handleFormSubmit = (e) => {
           <label className='input_label'>
             Home Value:
           </label>
-          <input 
+          $<input 
             className='number_input'
             type='number'
             onChange={this.handleHomePrice} 
@@ -76,12 +83,16 @@ handleFormSubmit = (e) => {
           <label className='input_label'>
             Down Payment:
           </label>
-          <input 
+          $<input 
             className='number_input'
             type='number'
             onChange={this.handleDownPayment} 
             value={down_payment}
           />
+          {this.state.errors.length > 0 &&
+            <span className='error'>{this.state.errors[0]}</span>
+          }
+          
           <label className='input_label'>
             Down Payment %
           </label>

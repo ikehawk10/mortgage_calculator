@@ -15,7 +15,8 @@ class Mortgage extends Component {
   }
 
   getPayment = monthly_payment => {
-    this.setState({ monthly_payment });
+    this.setState({monthly_payment});
+    this.props.getMortgage(monthly_payment);
   }
 
   render() {

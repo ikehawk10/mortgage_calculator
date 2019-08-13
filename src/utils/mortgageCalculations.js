@@ -4,6 +4,8 @@ const mortgageCalculation = ({home_value, down_payment, percentage, interest, lo
   const term = loan_term * 12;
   const interestTimesPayments = (Math.pow(1+r,term)).toFixed(3);
 
+  home_value = home_value - down_payment;
+
   return (home_value*((r * interestTimesPayments)/(interestTimesPayments - 1))).toFixed(2);
 } 
 

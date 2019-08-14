@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-function Affortability() {
-  return(
-    <div>
-      this is the Affortability component
-    </div>
-  )
+class Affortability extends Component {
+  state = {
+    item: '',
+    todos: ['complete affortability calculator', 'add PMI, property tax, and insurance line items']
+  }
+
+  render() {
+    return(
+      <div>
+          {this.state.todos.map((item, i) => {
+            return <p key={i}>{item}</p>
+          })}
+      </div>
+    )
+  }
+    
+  
 }
 
 export default Affortability;

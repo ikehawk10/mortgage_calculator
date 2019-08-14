@@ -128,7 +128,7 @@ handleFormSubmit = (e) => {
             value={interest}
             placeholder={interest}
           />
-          <input className='btn-submit' type='submit' value='Calculate' />
+          <input className='btn_submit' type='submit' value='Calculate' />
         </form>
       </div>
     );

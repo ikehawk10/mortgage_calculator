@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import logo from './assets/clear_head.png'
+import logo from './assets/accenture.jpeg'
 
 import Mortgage from './Components/Mortgage';
 import Greeting from './Components/Mortgage/Greeting';
@@ -28,7 +28,7 @@ class App extends Component {
     return (
       <div className="app">
         <Greeting 
-          message='Greetings, Clearhead team!'
+          message='Greetings, Accenture team!'
           img_src={logo}
         />
         <section className='pill_container'>

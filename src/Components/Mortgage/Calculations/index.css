@@ -21,8 +21,10 @@
   width: 90%;
 }
 
-.btn-submit {
-  background-color: #39C6F4;
+.btn_submit {
+  background-color: #BB03FB;
+  color: white;
+  font-weight: 700;
   height: 40px;
   font-size: 14px;
   margin-top: 30px;

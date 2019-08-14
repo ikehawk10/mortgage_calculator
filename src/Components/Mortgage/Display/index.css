@@ -4,6 +4,8 @@
 }
 
 .monthly_cost {
+  background: linear-gradient(to right,#a100ff 30%,#460073 100%);
+  color: white;
   font-size: 20px;
   font-weight: 700;
   padding: 20px;

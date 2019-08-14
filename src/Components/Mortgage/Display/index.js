@@ -8,7 +8,7 @@ function Display(props) {
   const payment = Math.round(mortgage + property_tax + insurance);
   return (
     <div className="display_container">
-      <div className='monthly_cost'>${formateNumbers(payment)}<span className='term'>/mo</span></div>
+      <div className='monthly_cost'>Monthly Payment: ${formateNumbers(payment)}<span className='term'>/mo</span></div>
       
 
     </div>

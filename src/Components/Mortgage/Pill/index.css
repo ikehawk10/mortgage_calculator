@@ -1,8 +1,8 @@
 .pill {
-  border: 1px solid #8ab4f8;
+  border: 1px solid #BB03FB;
   cursor: pointer;
   display: inline;
-  padding: 10px;
+  padding: 10px 30px;
 }
 
 .pill_container {
@@ -12,6 +12,7 @@
 
 .mortgage_pill {
   border-radius: 18px 0 0 18px;
+  font-weight: 700;
 }
 
 .affortability_pill {

@@ -11,4 +11,6 @@
 
 .greeting {
   display: inline;
+  font-family: 'Google Noto Sans';
+  font-size: 24px;
 }
